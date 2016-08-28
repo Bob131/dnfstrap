@@ -1,9 +1,10 @@
 bin_PROGRAMS = dnfstrap
 
 dnfstrap_SOURCES = \
-	rpmts-preload.h \
+	rpmts-preload.c \
 	libdnf.vapi \
 	native-arches.vapi \
+	dlopen.vapi \
 	install-context.vala \
 	dnfstrap.vala
 dnfstrap_VALAFLAGS = $(dnfstrap_U_VALAFLAGS)
@@ -13,7 +14,8 @@ dnfstrap_LDADD = \
 	$(dnfstrap_U_LIBS)
 
 CLEANFILES = \
-	$(wildcard *.c) \
+	install-context.c \
+	dnfstrap.c \
 	*.stamp \
 	*.stamp-t
 

@@ -9,8 +9,6 @@ AM_SILENT_RULES([yes])
 AM_PROG_VALAC([0.28])
 AM_PROG_CC_C_O
 
-CFLAGS="$CFLAGS -w"
-
 dnl ###########################################################################
 dnl Dependencies
 dnl ###########################################################################
@@ -27,6 +25,7 @@ PKG_CHECK_MODULES(dnfstrap_U, [
 
 AC_SUBST([dnfstrap_U_VALAFLAGS], ["--pkg gio-2.0 \
           --pkg posix \
+          --thread \
           --target-glib=$GLIB_REQUIRED \
           --enable-experimental \
           --enable-experimental-non-null \

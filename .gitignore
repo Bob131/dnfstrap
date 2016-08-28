@@ -48,9 +48,10 @@ Makefile.in
 /stamp-h1
 */tags
 /m4
-*.c
 *_la*
 *.la
 .libs/
 
 src/dnfstrap
+src/dnfstrap.c
+src/install-context.c

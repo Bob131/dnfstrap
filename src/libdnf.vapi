@@ -26,6 +26,9 @@ namespace Dnf {
 	public void set_solv_dir (string solv_dir);
 	public unowned string get_solv_dir ();
 
+	public void repo_disable (string name) throws GLib.Error;
+	public void repo_enable (string name) throws GLib.Error;
+
 	public unowned Dnf.State get_state ();
 
 	public static bool globals_init () throws GLib.Error;
