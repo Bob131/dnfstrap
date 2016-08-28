@@ -77,17 +77,12 @@ class InstallContext : Object {
         requires (context.get_sack() != null)
     {
         var query = new Hawkey.Query((!) context.get_sack());
+
         query.filter_latest(true);
         query.filter_in(Hawkey.KeyName.ARCH, Hawkey.ComparisonType.EQ,
             native_arches);
-
         query.filter(Hawkey.KeyName.REPONAME, Hawkey.ComparisonType.NEQ,
             Hawkey.SYSTEM_REPO_NAME);
-        query.filter(Hawkey.KeyName.REPONAME, Hawkey.ComparisonType.NEQ,
-            "fedora");
-        query.filter(Hawkey.KeyName.REPONAME, Hawkey.ComparisonType.NEQ,
-            "fedora-updates");
-
         query.filter(Hawkey.KeyName.ARCH, Hawkey.ComparisonType.NEQ, "src");
         query.filter(Hawkey.KeyName.NAME, Hawkey.ComparisonType.EQ, name);
 
