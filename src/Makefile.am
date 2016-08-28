@@ -1,7 +1,7 @@
 bin_PROGRAMS = dnfstrap
 
 dnfstrap_SOURCES = \
-	rpmts-preload.c \
+	preload-hacks.c \
 	libdnf.vapi \
 	native-arches.vapi \
 	dlopen.vapi \
