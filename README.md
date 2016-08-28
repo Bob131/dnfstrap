@@ -28,5 +28,14 @@ Two things about the above invocation:
    I've put some effort into this use case. However, the method with which
    dnfstrap wrestles libdnf into compliance is not exactly robust.
  * Sudo really is needed, as both dnfstrap and rpm partake in chroot
-   shenanigans and more. This makes the hacky nature of dnfstrap all the more
-   terrifying, so use it at your own risk.
+   shenanigans, rpm needs to be able to setuid etc. This makes the hacky nature
+   of dnfstrap all the more terrifying, so use it at your own risk.
+
+### Known bugs
+
+ * **Once you run dnfstrap for a target directory, it cannot be run again**:
+   This means that if dnfstrap gets interrupted (or dies) during a build, you
+   cannot try again with the same directory. Your best bet is to copy `<your
+   build dir>/var/cache/dnf` to a new directory and start again. This is because
+   the package solver is, for whatever reason, unable to resolve a dependency on
+   `ld-linux-<target arch>.so` after it has already been installed.
