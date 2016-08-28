@@ -5,6 +5,18 @@ dnfstrap is a utility for creating a new Fedora chroot, containing only dnf and
 its dependencies. You probably shouldn't use it though; the source files within
 are woven from the RPM team's nightmares, I'm sure.
 
+So why use it? Well, the minimal Fedora image weighs in at about 400MiB,
+decompressing to 2GiB. The problem with this is two-fold:
+
+ * Downloading 400MiB on a 200kbps connection takes a *long* time.
+ * For a typical appliance application, 2GiB before you've got any actual
+   software on the device is a bit of a stretch.
+
+A dnfstrap chroot, on the other hand, requires about 80MiB of packages (plus the
+forty-odd megabytes of repo data) and ends up using about 500MiB of disk space.
+
+### Usage
+
 If you're feeling self-destructive, you'll need libdnf. It should be coming to
 the Fedora repos soon, but until then you can use the RPM team's Copr:
 
